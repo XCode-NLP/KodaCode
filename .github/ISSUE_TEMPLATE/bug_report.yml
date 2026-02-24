@@ -1,0 +1,155 @@
+# https://docs.github.com/ru/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repositoryname: Сообщение об ошибке
+name: Сообщение об ошибке
+description: Помогите нам исправить ошибку в нашем продукте или на нашем сайте
+title: "[BUG] "
+labels: bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Прежде чем заполнять форму:**
+        * проверьте, нет ли [существующих запросов](https://github.com/XCode-NLP/KodaCode/issues?q=is%3Aissue%20state%3Aopen%20label%3Abug) на эту же тему;
+        * проверьте наличие обновлений, установите их (при наличии) и перепроверьте наличие этой ошибки.
+
+        Если подобный запрос существует или ошибка уже исправлена, *это обращение* будет закрыто.
+
+        Лучше проголосуйте за существующий запрос вместо создания нового.
+
+  - type: checkboxes
+    id: products
+    attributes:
+      label: Продукт
+      description: Укажите, где вы встретили ошибку
+      options:
+        - label: Плагин для VSCode
+          required: false
+        - label: Плагин для JetBrains IDE
+          required: false
+        - label: Консольная утилита (CLI)
+          required: false
+        - label: Веб-сайт ([kodacode.ru](https://kodacode.ru))
+          required: false
+        - label: Документация ([docs.kodacode.ru](https://docs.kodacode.ru))
+          required: false
+        - label: Личный кабинет ([kodacode.ru/account](https://kodacode.ru/account))
+          required: false
+        - label: Модель
+          required: false
+    validations:
+      required: true
+
+  - type: input
+    id: os_version
+    attributes:
+      label: Операционная система и версия
+      placeholder: "Например: Windows 11"
+    validations:
+      required: true
+
+  - type: input
+    id: koda_version
+    attributes:
+      label: Версия плагина или CLI, название модели
+      placeholder: "Например: 1.0.0"
+    validations:
+      required: true
+
+  - type: textarea
+    id: ide_version
+    attributes:
+      label: Версия IDE (для плагина)
+      description: |
+        Версию можно узнать здесь:
+        * **VSCode**: Help (Справка) - About (О программе) - Copy (Копировать)
+        * **JetBrains (OpenIDE, GigaIDE)**: Help (Помощь) - About (О программе) - Copy and Close (Копировать и закрыть)
+      render: Bash
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Описание
+      description: Чёткое и краткое описание, в чём заключается ошибка
+      placeholder: Опишите проблему...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: Шаги воспроизведения
+      description: Опишите шаги для воспроизведения ошибки
+      placeholder: |
+        1. Перейдите в '...'
+        2. Нажмите на '....'
+        3. Прокрутите вниз до '....'
+        4. Увидите ошибку
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Ожидаемое поведение
+      description: Чёткое и краткое описание того, что вы ожидали
+      placeholder: Опишите, как должно работать...
+
+  - type: textarea
+    id: actual_behavior
+    attributes:
+      label: Фактическое поведение
+      description: Чёткое и краткое описание того, что произошло на самом деле
+      placeholder: Опишите, что произошло на самом деле...
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidences
+    attributes:
+      label: Скриншоты, логи, конфиги, тестовые данные
+      description: |
+        Если возможно, добавьте скриншоты и логи для объяснения проблемы, тестовые (обезличенные, нечувствительные) данные тоже нам помогут.
+        Если вы изменяли конфиг, приложите и его, но удалите чувствительные данные (например, токены, пароли или ключи к моделям).
+
+        <details><summary>Как собрать логи?</summary>
+
+        * **VSCode**: Help (Справка) - Toggle Developer Tools (Выключить или выключить средства разработчика) - на вкладке Console нажать ПКМ - Save as...
+        * **JetBrains (OpenIDE, GigaIDE)**: Help (Помощь) - Collect Logs and Diagnostic Data (Собрать логи и диагностические данные)
+        * **koda-cli**: нажать Ctrl+O, Ctrl+S и скопировать содержимое консоли в файл, или найти свежий файл по дате изменения:
+          * **Windows**: `%USERPROFILE%/.kodacli/tmp/**/logs.json`
+          * **Linux/MacOS**: `~/.kodacli/tmp/**/logs.json`
+
+        </details>
+
+        <details><summary>Где лежат файлы конфигурации?</summary>
+
+        * **плагин Koda (VSCode, JetBrains, OpenIDE, GigaIDE)**:
+          * **Windows**: `%USERPROFILE%/.koda/config.yaml`
+          * **Linux/MacOS**: `~/.koda/config.yaml`
+        * **koda-cli**:
+          * **Windows**: `%USERPROFILE%/.kodacli/settings.json`
+          * **Linux/MacOS**: `~/.kodacli/settings.json`
+
+        </details>
+      placeholder: Добавьте файлы в это поле
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Дополнительная информация
+      description: Добавьте любую другую полезную информацию о проблеме
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Чеклист
+      options:
+        - label: Я проверил существующие issues и уверен, что об этой ошибке ранее не сообщалось
+          required: true
+        - label: Я уверен, что эта ошибка сейчас не исправлена
+          required: true
+        - label: Я предоставил достаточно информации для понимания функции
+          required: true

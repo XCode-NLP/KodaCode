@@ -1,0 +1,82 @@
+# https://docs.github.com/ru/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
+name: Запрос новой функции
+description: Предложите идею для улучшения проекта
+title: "[FEATURE] "
+labels: enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Прежде чем заполнять форму:**
+        * проверьте, нет ли [существующих запросов](https://github.com/XCode-NLP/KodaCode/issues?q=is%3Aissue%20state%3Aopen%20label%3Aenhancement) на эту же тему;
+        * проверьте наличие обновлений, установите их (при наличии) и перепроверьте отсутствие этой функции.
+
+        Если подобный запрос существует, *это обращение* будет закрыто.
+
+        Лучше проголосуйте за существующий запрос вместо создания нового.
+
+  - type: checkboxes
+    id: products
+    attributes:
+      label: Продукт
+      description: Укажите, где вы хотели бы увидеть эту функцию
+      options:
+        - label: Плагин для VSCode
+          required: false
+        - label: Плагин для JetBrains IDE
+          required: false
+        - label: Консольная утилита (CLI)
+          required: false
+        - label: Веб-сайт ([kodacode.ru](https://kodacode.ru))
+          required: false
+        - label: Документация ([docs.kodacode.ru](https://docs.kodacode.ru))
+          required: false
+        - label: Личный кабинет ([kodacode.ru/account](https://kodacode.ru/account))
+          required: false
+        - label: Поддержка моделей
+          required: false
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem_statement
+    attributes:
+      label: Решаемая проблема
+      description: Какую проблему вы не смогли решить? В каком случае эта функция будет использоваться?
+      placeholder: Опишите проблему или сценарий использования...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Предлагаемое решение
+      description: Подробно опишите желаемое решение
+      placeholder: Опишите, как вы видите реализацию этой функции...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Рассмотренные альтернативы
+      description: Опишите где вы встречали такой же или похожий функционал
+      placeholder: Названия плагинов, IDE, моделей...
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Дополнительная информация
+      description: Добавьте любую другую информацию или скриншоты, связанные с запросом функции
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Чеклист
+      options:
+        - label: Я проверил существующие issues и уверен, что моё предложение не запрашивалось ранее
+          required: true
+        - label: Я уверен, что предлагаемый функционал сейчас не реализован
+          required: true
+        - label: Я предоставил достаточно информации для понимания функции
+          required: true
