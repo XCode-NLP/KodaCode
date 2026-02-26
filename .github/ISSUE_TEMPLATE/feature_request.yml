@@ -2,7 +2,8 @@
 name: Запрос новой функции
 description: Предложите идею для улучшения проекта
 title: "[FEATURE] "
-labels: enhancement
+labels: Предложение
+type: Enhancement
 body:
   - type: markdown
     attributes:

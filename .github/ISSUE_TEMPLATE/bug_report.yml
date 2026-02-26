@@ -3,6 +3,7 @@ name: Сообщение об ошибке
 description: Помогите нам исправить ошибку в нашем продукте или на нашем сайте
 title: "[BUG] "
 labels: bug
+type: Bug
 body:
   - type: markdown
     attributes:
