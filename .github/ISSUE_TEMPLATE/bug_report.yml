@@ -1,8 +1,6 @@
-# https://docs.github.com/ru/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repositoryname: Сообщение об ошибке
+# https://docs.github.com/ru/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
 name: Сообщение об ошибке
 description: Помогите нам исправить ошибку в нашем продукте или на нашем сайте
-title: "[BUG] "
-labels: bug
 type: Bug
 body:
   - type: markdown
@@ -61,8 +59,10 @@ body:
       label: Версия IDE (для плагина)
       description: |
         Версию можно узнать здесь:
+
         * **VSCode**: Help (Справка) - About (О программе) - Copy (Копировать)
         * **JetBrains (OpenIDE, GigaIDE)**: Help (Помощь) - About (О программе) - Copy and Close (Копировать и закрыть)
+
       render: Bash
     validations:
       required: true
@@ -73,8 +73,6 @@ body:
       label: Описание
       description: Чёткое и краткое описание, в чём заключается ошибка
       placeholder: Опишите проблему...
-    validations:
-      required: true
 
   - type: textarea
     id: reproduction_steps
@@ -83,8 +81,8 @@ body:
       description: Опишите шаги для воспроизведения ошибки
       placeholder: |
         1. Перейдите в '...'
-        2. Нажмите на '....'
-        3. Прокрутите вниз до '....'
+        2. Нажмите на '...'
+        3. Прокрутите вниз до '...'
         4. Увидите ошибку
     validations:
       required: true
@@ -125,6 +123,9 @@ body:
 
         <details><summary>Где лежат файлы конфигурации?</summary>
 
+        **Убедитесь, что удалили из прилагаемого конфига чувствительные данные!**
+        Ннапример, токены, пароли или ключи к моделям.**
+
         * **плагин Koda (VSCode, JetBrains, OpenIDE, GigaIDE)**:
           * **Windows**: `%USERPROFILE%/.koda/config.yaml`
           * **Linux/MacOS**: `~/.koda/config.yaml`
@@ -133,6 +134,7 @@ body:
           * **Linux/MacOS**: `~/.kodacli/settings.json`
 
         </details>
+
       placeholder: Добавьте файлы в это поле
     validations:
       required: true
@@ -152,5 +154,5 @@ body:
           required: true
         - label: Я уверен, что эта ошибка сейчас не исправлена
           required: true
-        - label: Я предоставил достаточно информации для понимания функции
+        - label: Я предоставил достаточно информации для понимания проблемы
           required: true

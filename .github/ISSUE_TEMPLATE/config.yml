@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Личный кабинет
+    url: https://kodacode.ru/account
+    about: Проверьте текущие лимиты
+  - name: Сообщество в Telegram
+    url: https://t.me/kodacommunity
+    about: Место, где можно пообщаться с другими пользователями Koda

@@ -1,9 +1,7 @@
 # https://docs.github.com/ru/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
 name: Запрос новой функции
 description: Предложите идею для улучшения проекта
-title: "[FEATURE] "
-labels: Предложение
-type: Enhancement
+type: Feature
 body:
   - type: markdown
     attributes:
