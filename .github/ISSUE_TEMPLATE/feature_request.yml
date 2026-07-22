@@ -22,6 +22,8 @@ body:
       options:
         - label: Плагин для VSCode
           required: false
+        - label: Плагин для VSCode
+          required: false
         - label: Плагин для JetBrains IDE
           required: false
         - label: Консольная утилита (CLI)
