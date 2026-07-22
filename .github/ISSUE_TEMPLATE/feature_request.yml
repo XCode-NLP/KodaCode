@@ -20,7 +20,7 @@ body:
       label: Продукт
       description: Укажите, где вы хотели бы увидеть эту функцию
       options:
-        - label: Плагин для VSCode
+        - label: Koda Desktop
           required: false
         - label: Плагин для VSCode
           required: false
