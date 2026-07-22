@@ -20,6 +20,8 @@ body:
       label: Продукт
       description: Укажите, где вы встретили ошибку
       options:
+        - label: Koda Desktop
+          required: false
         - label: Плагин для VSCode
           required: false
         - label: Плагин для JetBrains IDE
