@@ -7,7 +7,7 @@ body:
     attributes:
       value: |
         **Прежде чем заполнять форму:**
-        * проверьте, нет ли [существующих запросов](https://github.com/XCode-NLP/KodaCode/issues?q=is%3Aissue%20state%3Aopen%20label%3Abug) на эту же тему;
+        * проверьте, нет ли [существующих запросов](https://github.com/XCode-NLP/KodaCode/issues?q=is%3Aissue%20state%3Aopen%20type%3ABug) на эту же тему;
         * проверьте наличие обновлений, установите их (при наличии) и перепроверьте наличие этой ошибки.
 
         Если подобный запрос существует или ошибка уже исправлена, *это обращение* будет закрыто.
@@ -34,7 +34,7 @@ body:
           required: false
         - label: Личный кабинет ([kodacode.ru/account](https://kodacode.ru/account))
           required: false
-        - label: Модель
+        - label: Модели, предоставляемые Kodacode
           required: false
     validations:
       required: true
@@ -59,12 +59,7 @@ body:
     id: ide_version
     attributes:
       label: Версия IDE (для плагина)
-      description: |
-        Версию можно узнать здесь:
-
-        * **VSCode**: Help (Справка) - About (О программе) - Copy (Копировать)
-        * **JetBrains (OpenIDE, GigaIDE)**: Help (Помощь) - About (О программе) - Copy and Close (Копировать и закрыть)
-
+      description: "Документация: [Как узнать версию?](https://docs.kodacode.ru/plugin/troubleshooting/diagnostics.html)"
       render: Bash
     validations:
       required: true
