@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Документация
+    url: https://docs.kodacode.ru
+    about: Инструкции по установке, настройке и сбору логов для диагностики
   - name: Личный кабинет
     url: https://kodacode.ru/account
     about: Проверьте текущие лимиты

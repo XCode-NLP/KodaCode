@@ -50,8 +50,11 @@ body:
   - type: input
     id: koda_version
     attributes:
-      label: Версия плагина или CLI, название модели
-      placeholder: "Например: 1.0.0"
+      label: Версия Koda и название модели
+      description: |
+        Версия Koda Desktop, плагина или консольной утилиты и название модели, на которой воспроизводится ошибка.
+        Как узнать версию: [CLI](https://docs.kodacode.ru/cli/troubleshooting.html#current-version), [Desktop](https://docs.kodacode.ru/desktop/faq.html#current-version), [плагин](https://docs.kodacode.ru/plugin/troubleshooting/index.html#current-version).
+      placeholder: "Например: 2.0.0, модель — как выбрана в Koda"
     validations:
       required: true
 
@@ -59,8 +62,11 @@ body:
     id: ide_version
     attributes:
       label: Версия IDE (для плагина)
-      description: "Документация: [Как узнать версию?](https://docs.kodacode.ru/plugin/troubleshooting/diagnostics.html)"
-      render: Bash
+      description: |
+        Только для плагина.
+        Версия плагина показана в диалоге [«О Koda»](https://docs.kodacode.ru/plugin/troubleshooting/index.html#current-version), версия IDE и плагина — в разделе [«Версии ПО»](https://docs.kodacode.ru/plugin/troubleshooting/diagnostics.html#versions).
+        Для Koda Desktop и консольной утилиты оставьте прочерк.
+      render: text
     validations:
       required: true
 
@@ -105,29 +111,28 @@ body:
     attributes:
       label: Скриншоты, логи, конфиги, тестовые данные
       description: |
-        Если возможно, добавьте скриншоты и логи для объяснения проблемы, тестовые (обезличенные, нечувствительные) данные тоже нам помогут.
-        Если вы изменяли конфиг, приложите и его, но удалите чувствительные данные (например, токены, пароли или ключи к моделям).
+        Если возможно, добавьте скриншоты и логи, которые объясняют проблему.
+        Тестовые (обезличенные, нечувствительные) данные тоже нам помогут.
+        Если вы изменяли конфиг, приложите и его, но удалите чувствительные данные: токены, пароли и ключи к моделям.
 
-        <details><summary>Как собрать логи?</summary>
+        <details><summary>Как собрать логи и диагностические данные?</summary>
 
-        * **VSCode**: Help (Справка) - Toggle Developer Tools (Выключить или выключить средства разработчика) - на вкладке Console нажать ПКМ - Save as...
-        * **JetBrains (OpenIDE, GigaIDE)**: Help (Помощь) - Collect Logs and Diagnostic Data (Собрать логи и диагностические данные)
-        * **koda-cli**: нажать Ctrl+O, Ctrl+S и скопировать содержимое консоли в файл, или найти свежий файл по дате изменения:
-          * **Windows**: `%USERPROFILE%/.kodacli/tmp/**/logs.json`
-          * **Linux/MacOS**: `~/.kodacli/tmp/**/logs.json`
+        * **Koda Desktop** — [логи и диагностика](https://docs.kodacode.ru/desktop/log.html): вкладка **Настройки → Логи**, кнопка **Скопировать отчёт**, файлы логов на диске.
+        * **Плагин для VS Code и JetBrains IDE** — [сбор диагностической информации](https://docs.kodacode.ru/plugin/troubleshooting/diagnostics.html#logs-and-sessions): канал **Koda** в VS Code, кнопка **Dump Koda** в JetBrains, файл `core.log` и файлы сессий.
+        * **Консольная утилита (CLI)** — [что собрать перед отправкой](https://docs.kodacode.ru/cli/troubleshooting.html#report-collect): команды `/about` и `/bug log generate`, запуск с флагом `--debug`.
 
         </details>
 
         <details><summary>Где лежат файлы конфигурации?</summary>
 
         **Убедитесь, что удалили из прилагаемого конфига чувствительные данные!**
-        Ннапример, токены, пароли или ключи к моделям.**
+        Например, токены, пароли или ключи к моделям.
 
-        * **плагин Koda (VSCode, JetBrains, OpenIDE, GigaIDE)**:
-          * **Windows**: `%USERPROFILE%/.koda/config.yaml`
+        * **Плагин Koda (VS Code, JetBrains, OpenIDE, GigaIDE)**:
+          * **Windows**: `%USERPROFILE%\.koda\config.yaml`
           * **Linux/MacOS**: `~/.koda/config.yaml`
-        * **koda-cli**:
-          * **Windows**: `%USERPROFILE%/.kodacli/settings.json`
+        * **Консольная утилита (CLI)**:
+          * **Windows**: `%USERPROFILE%\.kodacli\settings.json`
           * **Linux/MacOS**: `~/.kodacli/settings.json`
 
         </details>
